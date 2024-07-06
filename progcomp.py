@@ -1,7 +1,6 @@
 import time
 
 cacl = "------------------------------------------------"
-# cacl just means calculato line
 
 
 def texted():
@@ -19,7 +18,7 @@ def texted():
         txtf = open("your file.txt", "a")
         txtf.write(txt)
         print("The file has now added onto with that text!")
-    if opt == "2":
+    elif opt == "2":
         fntxt = input(
             "What would you like to name your file? (You need to put .txt or your preferred text file type at the end)\n"
         )
@@ -31,7 +30,7 @@ def texted():
         )
         txtf.write(txt)
         print("The file has now been written to!")
-    if opt == "3":
+    elif opt == "3":
         print(
             "This file will be seperate from the one on the other 2 options.\nAlso this is a WIP so things might be"
         )
@@ -43,13 +42,16 @@ def texted():
         txtle.write(ad)
         txtle = open("letter.txt", "a")
         txtle.write(ltxt)
-    if opt == "5":
+    elif opt == "5":
         print("\n")
         menu()
-    if opt == "4":
+    elif opt == "4":
         optt = input(
             "Would you like to read 'your file.txt' (1),'letter.txt' (2) or 'sample.txt' (3)"
         )
+    else:
+        print("Sorry, but that option was invalid.\n")
+        menu()
 
 
 def calculator():
