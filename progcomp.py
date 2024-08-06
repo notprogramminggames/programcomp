@@ -1,4 +1,5 @@
 import time
+from games import *
 
 cacl = "------------------------------------------------"
 
@@ -6,7 +7,7 @@ cacl = "------------------------------------------------"
 def texted():
     opt = int(
         input(
-            "What would you like to do?\n1: Add to the end of a file\n2: New file\n3: Letter Mode\n4: Read file\n5: Go back to previous menu\n"
+            "What would you like to do?\n---------------------------\n1: Add to the end of a file\n2: New file\n3: Letter Mode\n4: Read file\n5: Go back to previous menu\n---------------------------\n"
         )
     )
     if opt == 1:
@@ -24,7 +25,8 @@ def texted():
         fntxt = input(
             "What would you like to name your file? (You need to put .txt or your preferred text file type at the end)\n"
         )
-        # fntxt just means file name txt
+        # fntxt just means file name txt. Also i guess you could use this to write python, but you'd have to format it yourself in a better text editor.
+        print(f"Your file has been named {fntxt}")
         txtf = open(fntxt, "w")
         txt = input(
             "Now put what you want to put in that file:\n------------------------------------------\n------------------------------------------\n"
@@ -36,13 +38,15 @@ def texted():
             "This file will be seperate from the one on the other 2 options.\nAlso this is a WIP so things might be"
         )
         txtle = open("letter.txt", "w")
-        ad = input("Who is this letter addressed to? ")
+        name = input("Who is this letter addressed to? ")
         ltxt = input(
             "Now put what you want to put in that letter:\n------------------------------------------\n------------------------------------------\n"
         )
-        txtle.write(ad)
+        txtle.write(name)
+        txtle.write("\n\n")
         txtle = open("letter.txt", "a")
         txtle.write(ltxt)
+        # What i was tring to do was make it so that the name would be first then on the next line would be the letter but it failed bad.
     elif opt == 5:
         print("\n")
         menu()
@@ -99,12 +103,14 @@ def menu():
         print("this program was made by notprogramminggames")
     elif load == "5":
         print(
-            "Changelog:\n 2nd June 2024: Program created\n 23rd June 2024: I think calculator was added this day\n Some stuff happened but I dont remember when\n 6th July 2024: Text editor improved so that files could be named instead of being called 'your file.txt'\n Letter mode also added to text editor"
+            "Changelog:\n 2nd June 2024: Program created\n 23rd June 2024: I think calculator was added this day\n Some stuff happened but I dont remember when\n 6th July 2024: Text editor improved so that files could be named instead of being called 'your file.txt'\n Letter mode and read file also added to text editor"
         )
+        print("6th August 2024: Fixed letter mode")
+    elif load == "exit":
+        quit()
     else:
         print("The option number you entered was not valid.\n")
         menu()
 
 
 menu()
-
