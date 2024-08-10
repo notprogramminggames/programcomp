@@ -12,15 +12,31 @@ def texted():
     )
     if opt == 1:
         fn = input(
-            "What is the file you would like to add on to called? (Please make sure the file is in the same directory as the file for this program and you include the .txt at the end)\n"
+            "What is the file you would like to append to called? (Please make sure the file is in the same directory as the file for this program and you include the .txt at the end)\n"
         )
-        txtf = open(fn, "a")
-        txt = input(
-            "Now put what you want to put in that file:\n------------------------------------------\n"
+        time.sleep(0.5)
+        subopt = input(
+            "How would you like to append the text file?\n--------------------------\n1: Carry on from where the file ends\n2: Start on a next line from where the file ends\n"
         )
-        txtf = open("your file.txt", "a")
-        txtf.write(txt)
-        print("The file has now added onto with that text!")
+        if subopt == "1":
+            txtf = open(fn, "a")
+            txt = input(
+                "Now put what you want to put in that file:\n------------------------------------------\n"
+            )
+            txtf.write(txt)
+            print("The file has now added onto with that text!")
+            menu()
+        elif subopt == "2":
+            txtf = open(fn, "a")
+            txtf.write("\n")
+            txt = input(
+                "Now put what you want to put in that file:\n------------------------------------------\n"
+            )
+            txtf.write(txt)
+            print("The file has now added onto with that text!")
+            time.sleep(0.5)
+            menu()
+
     elif opt == 2:
         fntxt = input(
             "What would you like to name your file? (You need to put .txt or your preferred text file type at the end)\n"
@@ -33,20 +49,22 @@ def texted():
         )
         txtf.write(txt)
         print("The file has now been written to!")
+        menu()
     elif opt == 3:
         print(
             "This file will be seperate from the one on the other 2 options.\nAlso this is a WIP so things might be"
         )
         txtle = open("letter.txt", "w")
-        name = input("Who is this letter addressed to? ")
+        name = input("Who is this letter addressed to?\n")
         ltxt = input(
             "Now put what you want to put in that letter:\n------------------------------------------\n------------------------------------------\n"
         )
+        txtle.write("Dear ")
         txtle.write(name)
         txtle.write("\n\n")
         txtle = open("letter.txt", "a")
         txtle.write(ltxt)
-        # What i was tring to do was make it so that the name would be first then on the next line would be the letter but it failed bad.
+        menu()
     elif opt == 5:
         print("\n")
         menu()
@@ -56,6 +74,7 @@ def texted():
         )
         txtf = open(optt, "r")
         print(txtf.readlines())
+        menu()
     else:
         print("Sorry, but that option is invalid (text-ed)")
 
@@ -101,11 +120,6 @@ def menu():
         menu()
     elif load == "4":
         print("this program was made by notprogramminggames")
-    elif load == "5":
-        print(
-            "Changelog:\n 2nd June 2024: Program created\n 23rd June 2024: I think calculator was added this day\n Some stuff happened but I dont remember when\n 6th July 2024: Text editor improved so that files could be named instead of being called 'your file.txt'\n Letter mode and read file also added to text editor"
-        )
-        print("6th August 2024: Fixed letter mode")
     elif load == "exit":
         quit()
     else:
