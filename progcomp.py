@@ -16,7 +16,7 @@ def texted():
         )
         time.sleep(0.5)
         subopt = input(
-            "How would you like to append the text file?\n--------------------------\n1: Carry on from where the file ends\n2: Start on a next line from where the file ends\n"
+            "How would you like to append the text file?\n------------------------------------------------\n1: Carry on from where the file ends\n2: Start on a next line from where the file ends\n------------------------------------------------\n"
         )
         if subopt == "1":
             txtf = open(fn, "a")
@@ -106,7 +106,7 @@ def menu():
     time.sleep(0.5)
     load = input(
         # This bit looks ugly but at least it looks nice when ran.
-        "What would you like to load?\n----------------- \n|1:| Calculator  |\n|2:| Text editor |\n|3:| Games       |\n|4:| About       |\n|5:| Changelog   |\n-----------------\n"
+        "What would you like to load?\n----------------- \n|1:| Calculator  |\n|2:| Text editor |\n|3:| Games       |\n|4:| About       |\n-----------------\n"
     )
     if load == "1":
         calculator()
@@ -119,7 +119,9 @@ def menu():
         )
         menu()
     elif load == "4":
-        print("this program was made by notprogramminggames")
+        print(
+            "this program was made by notprogramminggames and created on the 2nd of June 2024"
+        )
     elif load == "exit":
         quit()
     else:
